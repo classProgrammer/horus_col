@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+    
+  action_server:
+    image: rasa/rasa-sdk:latest
+    volumes:
+      - ./actions:/app/actions
+    expose: 
+      - 5055
+    ports:
+      - 5055:5055
+
+  duckling:
+    image: rasa/duckling
+    expose: 
+      - 8000
+    ports:
+      - 8000:8000
+    networks: 
+      - app_net
+
+networks: 
+  app_net:

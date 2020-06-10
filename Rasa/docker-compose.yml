@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   rasa:
-    image: rasa/rasa:1.4.6
+    image: rasa/1.10.2-spacy-en
     ports:
       - 80:5005
     networks: 
@@ -14,7 +14,7 @@ services:
       --cors *
     
   action_server:
-    image: rasa/rasa-sdk:1.4.0    
+    image: rasa/rasa-sdk:latest
     volumes:
       - ./actions:/app/actions
     expose: 
